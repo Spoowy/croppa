@@ -21,6 +21,10 @@
 		if (!height) height = '_';
 		else height = Math.round(height);
 		
+		// Clear src path of croppa suffix to avoid the error of cropping a cropped image
+		var suffixRe = /-[0-9x_]*\./i;
+		src = src.replace(suffixRe, '.');
+		
 		// Produce the croppa syntax
 		var suffix = '-'+width+'x'+height;
 		
